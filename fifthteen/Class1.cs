@@ -13,10 +13,8 @@ namespace fifthteen
         public int zeroY;
         public int[,] mass;
         public Random rnd = new Random();
-        
         public int currentX;
         public int currentY;
-
         public Class1(int size)
         {
             if (size < 2)
@@ -30,7 +28,6 @@ namespace fifthteen
             this.size = size;
             mass = new int[size, size];
         }
-
         public void Start()
         {
             for (int y = 0; y < size; y++)
@@ -40,15 +37,11 @@ namespace fifthteen
                     mass[y, x] = CoordsToPosition(x, y) + 1; 
                 }
             }
-            
             zeroX = rnd.Next(0,3);
             zeroY = rnd.Next(0, 3);
             mass[zeroX,zeroY] = 0;
             mass[3, 3] = CoordsToPosition(zeroY, zeroX) + 1;
         }
-
-        
-
         public int CoordsToPosition(int x, int y)
         {
             return y * size + x;
@@ -58,8 +51,6 @@ namespace fifthteen
             x = position % size;
             y = position / size;
         }
-        
-        
         public  int FindOutCurrentYPosition()
         {
             for (int i = 0; i < 4; i++)
@@ -85,16 +76,12 @@ namespace fifthteen
                 {
                     if (mass[i, j] == 0)
                     {
-                        
                         currentX = j;
                         break;
-
                     }
                 }
             }
             return currentY;
         }
-
-        
     }
 }
